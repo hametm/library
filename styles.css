@@ -1,9 +1,139 @@
-#container {
-    height: 500px;
-    width: 700px;
-    background-color: aqua;
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+:root {
+    --primary-color: #5b828e;
+    --secondary-color: #d2c8bc;
+    --accent: #bbcfd7;
+    --brown: #ac7e62;
+    --extra-color: #ba9a88;
+    /* https://colorpalettes.net/color-palette-4311/ */
 }
 
-.hidden {
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    background-color: var(--primary-color);
+}
+
+/* .hidden {
     display: none;
+} */
+
+header {
+    display: flex;
+    flex-direction: column;
+    padding: 5% 10%;
+}
+
+header p {
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: 'Abril Fatface', cursive;
+    color: white;
+    font-size: 3rem;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+button:active {
+    transform: translate(1px, 1px);
+}
+
+form {
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: white;
+}
+
+#topForm {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.labelContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 10px;
+}
+
+.bar {
+    height: 1.5rem;
+    border-radius: 7px;
+    border: 1px solid rgb(184, 184, 184);
+}
+
+#submitButton {
+    background-color: var(--brown);
+    color: white;
+    font-size: 1rem;
+    padding: 8px;
+    width: 10%;
+    border: none;
+    border-radius: 7px;
+}
+
+#submitButton:hover {
+    cursor: pointer;
+    background-color: #ac7e62a1;
+}
+
+#submitButton:active {
+    transform: translate(1px, 1px);
+}
+
+fieldset {
+    border: none;
+    padding: 0px;
+    gap: 5px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid white;
+    font-size: 1.5rem;
+}
+
+td {
+    font-weight: normal;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    padding: 7px 12px;
+}
+
+table {
+    border-collapse:collapse;
+    color: white;
+}
+
+.removeButton {
+    border: none;
+    background-color: none;
+}
+
+.removeButton:hover {
+    cursor: pointer;
+}
+
+#remove {
+    width: 10%;
 }

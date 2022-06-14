@@ -9,25 +9,41 @@
     <script src="scripts.js" defer></script>
 </head>
 <body>
-    <button id="newBook">New Book</button>
-    <form action="" class="hidden">
-        <label for="title">Title:</label>
-        <input type="text" id="title">
-        <label for="author">Author:</label>
-        <input type="text" id="author">
-        <label for="pages">Number of pages:</label>
-        <input type="text" id="pages">
-        <fieldset>
-            <legend>Have you read it yet?</legend>
-            <label for="read">Yes</label>
-            <input type="radio" value="true" name="isRead" id="read">
-            <label for="notRead">No</label>
-            <input type="radio" value="false" name="isRead" id="notRead">
-        </fieldset>
-        <input type="button" id="submitButton" value="Submit">
-    </form>
-    <div id="container">
-
-    </div>
+    <header>
+        <h1>The Library Is Open</h1>
+        <p>Enter your books and see them displayed below!</p>
+        <!-- <button id="newBook">New Book</button> -->
+        <form action="" class="hidden">
+            <div id="topForm">
+                <div class="labelContainer">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" class="bar">
+                </div>
+               <div class="labelContainer">
+                <label for="author">Author</label>
+                <input type="text" id="author" class="bar">
+               </div>
+                <fieldset>
+                    <legend>Have you read it yet?</legend>
+                    <input type="radio" value="yes" name="isRead" id="read">
+                    <label for="read">Yes</label>
+                    <input type="radio" value="no" name="isRead" id="notRead">
+                    <label for="notRead">No</label>
+                </fieldset>
+            </div>
+            <input type="button" id="submitButton" value="Submit">
+        </form>
+    </header>
+    <main>
+        <table>
+                <tr>
+                    <th id="titleCol">Title</th>
+                    <th id="authorCol">Author</th>
+                    <th id="readCol">Status</th>
+                    <th id="remove"></th>
+                </tr>
+        </table>
+        <div id="container"></div>
+    </main> 
 </body>
 </html>
