@@ -55,6 +55,12 @@ function displayBooks(book) {
     }
     toggleButton.onclick = () => {
         toggleButton.classList.toggle("readButton");
+        book.isRead = !book.isRead;
+        if (book.isRead) {
+            toggleButton.textContent = "Read";
+        } else {
+            toggleButton.textContent = "Not read";
+        }
     }
 
     title.textContent = book.title;
