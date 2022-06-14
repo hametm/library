@@ -3,6 +3,10 @@ const container = document.getElementById("container");
 const formButton = document.getElementById("newBook");
 const form = document.querySelector("form");
 const submitButton = document.getElementById("submitButton");
+const bookTitle = document.getElementById("title");
+const bookAuthor = document.getElementById("author");
+const bookPages = document.getElementById("pages");
+const bookIsRead = document.querySelector('input[type="radio"]');
 
 let myLibrary = [];
 
@@ -16,14 +20,14 @@ function Book(title, author, pages, isRead) {
       }
 }
 
-const hp = new Book("Harry Potter", "J.K. Rowling", 500, true);
-const lotr = new Book("Lord of the Rings", "JRR Tolkien", 1000, true);
+// const hp = new Book("Harry Potter", "J.K. Rowling", 500, true);
+// const lotr = new Book("Lord of the Rings", "JRR Tolkien", 1000, true);
 
-myLibrary.push(hp);
-myLibrary.push(lotr);
+// myLibrary.push(hp);
+// myLibrary.push(lotr);
 
-function addBookToLibrary() {
-    myLibrary.push(userInput);
+function addBookToLibrary(book) {
+    myLibrary.push(book);
 }
 
 function displayBooks() {
@@ -31,7 +35,6 @@ function displayBooks() {
         let card = document.createElement("p");
         card.textContent = myLibrary[i].info();
         container.appendChild(card);
-        console.log(container.textContent);
     }
 }
 
@@ -39,8 +42,9 @@ formButton.onclick = () => {
     form.classList.remove("hidden");
 }
 
-submitButton.onclick = () => {
-    new Book()
-}
-
-displayBooks();
+submitButton.addEventListener("click", () => {
+    const hp = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookIsRead.value);
+    addBookToLibrary(hp);
+    form.classList.add("hidden");
+    displayBooks();  
+});
