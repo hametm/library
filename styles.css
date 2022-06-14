@@ -6,7 +6,7 @@
     --accent: #bbcfd7;
     --brown: #ac7e62;
     --extra-color: #ba9a88;
-    /* https://colorpalettes.net/color-palette-4311/ */
+    /* Color palette: https://colorpalettes.net/color-palette-4311/ */
 }
 
 body {
@@ -15,11 +15,8 @@ body {
     display: grid;
     grid-template-rows: 1fr 5fr;
     background-color: var(--primary-color);
+    min-height: 100vh;
 }
-
-/* .hidden {
-    display: none;
-} */
 
 header {
     display: flex;
@@ -62,7 +59,7 @@ form {
 .labelContainer {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 33%;
     gap: 10px;
 }
 
@@ -77,14 +74,18 @@ form {
     color: white;
     font-size: 1rem;
     padding: 8px;
-    width: 10%;
+    width: 100px;
     border: none;
     border-radius: 7px;
+    font-family: 'Abril Fatface', cursive;
+    letter-spacing: 1px;
+    box-shadow: 2px 0px 5px rgb(109, 109, 109), 0px 2px 5px rgb(109, 109, 109), -2px 0px 5px rgb(109, 109, 109), 0px -2px 5px rgb(109, 109, 109);
+
 }
 
 #submitButton:hover {
     cursor: pointer;
-    background-color: #ac7e62a1;
+    background-color: #ac7e62a1; 
 }
 
 #submitButton:active {
@@ -94,7 +95,9 @@ form {
 fieldset {
     border: none;
     padding: 0px;
-    gap: 5px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
@@ -118,6 +121,7 @@ td {
     border-bottom: 1px solid white;
     border-top: 1px solid white;
     padding: 7px 12px;
+
 }
 
 table {
@@ -127,7 +131,9 @@ table {
 
 .removeButton {
     border: none;
-    background-color: none;
+    color: white;
+    font-weight: bold;
+    background-color: var(--primary-color);
 }
 
 .removeButton:hover {

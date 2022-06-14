@@ -13,7 +13,7 @@
         <h1>The Library Is Open</h1>
         <p>Enter your books and see them displayed below!</p>
         <!-- <button id="newBook">New Book</button> -->
-        <form action="" class="hidden">
+        <form action="">
             <div id="topForm">
                 <div class="labelContainer">
                     <label for="title">Title</label>
@@ -24,11 +24,15 @@
                 <input type="text" id="author" class="bar">
                </div>
                 <fieldset>
-                    <legend>Have you read it yet?</legend>
-                    <input type="radio" value="yes" name="isRead" id="read">
-                    <label for="read">Yes</label>
-                    <input type="radio" value="no" name="isRead" id="notRead">
-                    <label for="notRead">No</label>
+                    <div id="legend">
+                        <legend>Have you read it yet?</legend>
+                    </div>
+                    <div id="radioButtons">
+                        <input type="radio" value="yes" name="isRead" id="read">
+                        <label for="read">Yes</label>
+                        <input type="radio" value="no" name="isRead" id="notRead">
+                        <label for="notRead">No</label>
+                    </div>
                 </fieldset>
             </div>
             <input type="button" id="submitButton" value="Submit">
