@@ -1,9 +1,11 @@
+// Figure out X button and radio buttons
+
 const form = document.querySelector("form");
 const submitButton = document.getElementById("submitButton");
 const bookTitle = document.getElementById("title");
 const bookAuthor = document.getElementById("author");
 const bookPages = document.getElementById("pages");
-const bookRead = document.querySelector('input[name="isRead"]:checked'?.value);
+const bookRead = document.querySelector('input[name="isRead"]');
 const table = document.querySelector("table");
 
 let myLibrary = [];
@@ -12,8 +14,10 @@ let newBook;
 function Book(title, author, isRead) {
     this.title = title.value;
     this.author = author.value;
-    this.isRead = isRead;
+    this.isRead = isRead.checked;
 }
+
+// Book.prototype.bookRead.value = false;
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
@@ -39,9 +43,22 @@ function displayBooks(book) {
     const remove = document.createElement("td");
     const removeButton = document.createElement("button");
 
+    // isRead toggle button
+    const toggleButton = document.createElement("button");
+    toggleButton.classList.add('notReadButton');
+    if (book.isRead) {
+        toggleButton.textContent = "Read";
+        toggleButton.classList.add("readButton");
+    } else {
+        toggleButton.textContent = "Not read";
+        toggleButton.classList.add("notReadButton");
+    }
+    toggleButton.onclick = () => {
+        toggleButton.classList.toggle("readButton");
+    }
+
     title.textContent = book.title;
     author.textContent = book.author;
-    isRead.textContent = book.isRead;
     removeButton.textContent = "X";
     removeButton.classList.add("removeButton");
 
@@ -49,6 +66,7 @@ function displayBooks(book) {
     row.appendChild(title);
     row.appendChild(author);
     row.appendChild(isRead);
+    isRead.appendChild(toggleButton);
     row.appendChild(remove);
     remove.appendChild(removeButton);
 
@@ -72,6 +90,7 @@ function displayBooks(book) {
 submitButton.addEventListener("click", () => {
     newBook = new Book(bookTitle, bookAuthor, bookRead);
     addBookToLibrary(newBook);
+    console.log(newBook.isRead);
 
     displayBooks(newBook);
     form.reset();
