@@ -144,7 +144,12 @@ table {
     padding: 7px;
 }
 
-.readButton:hover, .notReadButton:hover {
+.readButton:hover {
+    cursor: pointer;
+    background-color: rgb(77, 121, 73) !important;
+}
+
+.notReadButton:hover {
     cursor: pointer;
     background-color: rgb(172, 172, 172);
 }

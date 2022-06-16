@@ -1,5 +1,3 @@
-// Figure out X button and radio buttons
-
 const form = document.querySelector("form");
 const submitButton = document.getElementById("submitButton");
 const bookTitle = document.getElementById("title");
@@ -17,23 +15,9 @@ function Book(title, author, isRead) {
     this.isRead = isRead.checked;
 }
 
-// Book.prototype.bookRead.value = false;
-
 function addBookToLibrary(book) {
     myLibrary.push(book);
-    // book.setAttribute('id', myLibrary.indexOf(book));
-    // console.log(book.getAttribute('id'))
-    
-
 }
-
-// function displayBooks() {
-//     for (let i = 0; i < myLibrary.length; i++) {
-//         let card = document.createElement("p");
-//         card.textContent = myLibrary[i].info();
-//         container.appendChild(card);
-//     }
-// }
 
 function displayBooks(book) {
     const row = document.createElement("tr");
@@ -83,12 +67,6 @@ function displayBooks(book) {
     }
 
     removeButton.onclick = () => {
-        // if (removeButton.getAttribute("id") === row.getAttribute("id")) {
-        //     let matchingId = removeButton.getAttribute('id');
-        //     console.log(matchingId);
-        // }
-        // let removedRow = document.querySelector('[data-id=matchingId');
-        // removedRow.remove();
         row.remove();
     }
 }
@@ -96,8 +74,6 @@ function displayBooks(book) {
 submitButton.addEventListener("click", () => {
     newBook = new Book(bookTitle, bookAuthor, bookRead);
     addBookToLibrary(newBook);
-    console.log(newBook.isRead);
-
     displayBooks(newBook);
     form.reset();
 });
