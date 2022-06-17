@@ -1,2 +1,2 @@
 # library
-Library project for The Odin Project. Still a work in progress.
+Library project for The Odin Project. Photo credit to materialdesignicons.com.
