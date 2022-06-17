@@ -6,9 +6,6 @@ const bookPages = document.getElementById("pages");
 const bookRead = document.querySelector('input[name="isRead"]');
 const table = document.querySelector("table");
 
-let myLibrary = [];
-let newBook;
-
 function Book(title, author, isRead) {
     this.title = title.value;
     this.author = author.value;
@@ -16,20 +13,61 @@ function Book(title, author, isRead) {
 }
 
 function addBookToLibrary(book) {
+    const myLibrary = [];
     myLibrary.push(book);
 }
 
 function displayBooks(book) {
+
+    // Create display
     const row = document.createElement("tr");
     const title = document.createElement("td");
     const author = document.createElement("td");
     const isRead = document.createElement("td");
     const remove = document.createElement("td");
     const removeButton = document.createElement("button");
-
-    // isRead toggle button
     const toggleButton = document.createElement("button");
+
+
+    // Link display to Book keys
+    title.textContent = book.title;
+    author.textContent = book.author;
+    removeButton.textContent = "X";
+    removeButton.classList.add("removeButton");
+
+    // Build display
+    table.appendChild(row);
+    row.appendChild(title);
+    row.appendChild(author);
+    row.appendChild(isRead);
+    row.appendChild(remove);
+    remove.appendChild(removeButton);
+    isRead.appendChild(toggleButton);
+    
+    // Remove button functionality
+    removeButton.onclick = () => {
+        row.remove();
+    }
+
+    // isRead toggle button functionality
+    checkIfRead(book, isRead, toggleButton);
+
+}
+
+function checkIfRead(book, isRead, toggleButton) {
+
+    // Create toggle button with default notRead status
     toggleButton.classList.add('notReadButton');
+    displayToggleButton(book, toggleButton);
+
+    toggleButton.onclick = () => {
+        toggleButton.classList.toggle("readButton");
+        book.isRead = !book.isRead;
+        displayToggleButton(book, toggleButton);
+    }
+}
+
+function displayToggleButton(book, toggleButton) {
     if (book.isRead) {
         toggleButton.textContent = "Read";
         toggleButton.classList.add("readButton");
@@ -37,40 +75,24 @@ function displayBooks(book) {
         toggleButton.textContent = "Not read";
         toggleButton.classList.add("notReadButton");
     }
-    toggleButton.onclick = () => {
-        toggleButton.classList.toggle("readButton");
-        book.isRead = !book.isRead;
-        if (book.isRead) {
-            toggleButton.textContent = "Read";
-        } else {
-            toggleButton.textContent = "Not read";
-        }
-    }
-
-    title.textContent = book.title;
-    author.textContent = book.author;
-    removeButton.textContent = "X";
-    removeButton.classList.add("removeButton");
-
-    table.appendChild(row);
-    row.appendChild(title);
-    row.appendChild(author);
-    row.appendChild(isRead);
-    isRead.appendChild(toggleButton);
-    row.appendChild(remove);
-    remove.appendChild(removeButton);
-    
-    // Remove button logic
-    removeButton.onclick = () => {
-        row.remove();
-    }
 }
 
-submitButton.addEventListener("click", () => {
-    newBook = new Book(bookTitle, bookAuthor, bookRead);
-    addBookToLibrary(newBook);
-    displayBooks(newBook);
-    form.reset();
-});
+function submitBook() {
+    // if (bookTitle.value === "" && bookAuthor.value === "") {
+    //     submitButton.disabled = true; 
+    // } 
+
+    submitButton.addEventListener("click", () => {
+        let newBook = new Book(bookTitle, bookAuthor, bookRead);
+        addBookToLibrary(newBook);
+        displayBooks(newBook);
+        form.reset();
+    });
+    
+
+}
+
+submitBook();
+
 
 
