@@ -59,13 +59,8 @@ function displayBooks(book) {
     isRead.appendChild(toggleButton);
     row.appendChild(remove);
     remove.appendChild(removeButton);
-
-    // Only removes last row
-    for (let i = 0; i < myLibrary.length; i++) {
-        row.setAttribute('id', i);
-        removeButton.setAttribute('id', i);
-    }
-
+    
+    // Remove button logic
     removeButton.onclick = () => {
         row.remove();
     }
