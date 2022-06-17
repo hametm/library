@@ -77,19 +77,36 @@ function displayToggleButton(book, toggleButton) {
     }
 }
 
-function submitBook() {
-    // if (bookTitle.value === "" && bookAuthor.value === "") {
-    //     submitButton.disabled = true; 
-    // } 
+function enableSubmitButton() {
+    checkFormInput();
+    bookTitle.oninput = () => {
+        if (!(bookAuthor.value === "")) {
+            submitButton.disabled = false;
+        }
+    }
+    bookAuthor.oninput = () => {
+        if (!(bookTitle.value === "")) {
+            submitButton.disabled = false;
 
+        }
+    }
+}
+
+function checkFormInput() {
+    if (bookTitle.value === "" || bookAuthor.value === "") {
+        submitButton.disabled = true;
+    }
+}
+
+function submitBook() {
+    enableSubmitButton();
     submitButton.addEventListener("click", () => {
         let newBook = new Book(bookTitle, bookAuthor, bookRead);
         addBookToLibrary(newBook);
         displayBooks(newBook);
         form.reset();
+        checkFormInput();
     });
-    
-
 }
 
 submitBook();
