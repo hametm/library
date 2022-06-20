@@ -6,10 +6,12 @@ const bookPages = document.getElementById("pages");
 const bookRead = document.querySelector('input[name="isRead"]');
 const table = document.querySelector("table");
 
-function Book(title, author, isRead) {
-    this.title = title.value;
-    this.author = author.value;
-    this.isRead = isRead.checked;
+class Book {
+    constructor(title, author, isRead) {
+        this.title = title.value;
+        this.author = author.value;
+        this.isRead = isRead.checked;
+    }
 }
 
 function addBookToLibrary(book) {

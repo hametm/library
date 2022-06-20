@@ -153,7 +153,7 @@ table {
 
 .notReadButton {
     background-color: #f5f5f5b5;
-    border: solid black;
+    border: .75px solid black;
     border-radius: 5px;
     padding: 7px;
 }
