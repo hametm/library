@@ -6,7 +6,6 @@
     --accent: #bbcfd7;
     --brown: #ac7e62;
     --extra-color: #ba9a88;
-    /* Color palette: https://colorpalettes.net/color-palette-4311/ */
 }
 
 body {
@@ -80,7 +79,6 @@ form {
     letter-spacing: 1px;
     box-shadow: 2px 0px 5px rgb(109, 109, 109), 0px 2px 5px rgb(109, 109, 109), 
     -2px 0px 5px rgb(109, 109, 109), 0px -2px 5px rgb(109, 109, 109);
-
 }
 
 #submitButton:hover {
@@ -167,8 +165,6 @@ table {
     cursor: pointer;
     background-color: rgb(172, 172, 172);
 }
-
-
 
 .removeButton {
     border: none;

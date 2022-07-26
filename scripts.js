@@ -30,7 +30,6 @@ function displayBooks(book) {
     const removeButton = document.createElement("button");
     const toggleButton = document.createElement("button");
 
-
     // Link display to Book keys
     title.textContent = book.title;
     author.textContent = book.author;
@@ -82,27 +81,21 @@ function displayToggleButton(book, toggleButton) {
 function enableSubmitButton() {
     checkFormInput();
     bookTitle.oninput = () => {
-        if (!(bookAuthor.value === "")) {
-            submitButton.disabled = false;
-        }
+        if (!(bookAuthor.value === "")) submitButton.disabled = false;
     }
     bookAuthor.oninput = () => {
-        if (!(bookTitle.value === "")) {
-            submitButton.disabled = false;
-
-        }
+        if (!(bookTitle.value === "")) submitButton.disabled = false;
     }
 }
 
 function checkFormInput() {
-    if (bookTitle.value === "" || bookAuthor.value === "") {
-        submitButton.disabled = true;
-    }
+    if (bookTitle.value === "" || bookAuthor.value === "") submitButton.disabled = true;
 }
 
 function submitBook() {
     enableSubmitButton();
     submitButton.addEventListener("click", () => {
+        if (bookTitle.value === "") bookTitle.setCustomValidity("Please fill out the field");
         let newBook = new Book(bookTitle, bookAuthor, bookRead);
         addBookToLibrary(newBook);
         displayBooks(newBook);
