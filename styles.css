@@ -83,7 +83,7 @@ form {
 
 #submitButton:hover {
     cursor: pointer;
-    background-color: #ac7e62a1; 
+    background-color: #a46843a1; 
 }
 
 #submitButton:active {
@@ -92,7 +92,8 @@ form {
 
 #submitButton:disabled {
     cursor: default;
-    background-color: #94857b;
+    background-color: #949494;
+    color: rgb(216, 216, 216);
     box-shadow: none;
 }
 
